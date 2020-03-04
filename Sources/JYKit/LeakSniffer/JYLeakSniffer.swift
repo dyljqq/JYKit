@@ -8,9 +8,9 @@
 
 import UIKit
 
-class JYLeakSniffer {
+open class JYLeakSniffer {
   
-  static let shared = JYLeakSniffer()
+  static public let shared = JYLeakSniffer()
   
   private var timer: Timer?
   
@@ -18,7 +18,7 @@ class JYLeakSniffer {
     NotificationCenter.default.addObserver(self, selector: #selector(detectPong), name: snifferPongNotificationName, object: nil)
   }
   
-  func startSniffer() {
+  public func startSniffer() {
     
     UINavigationController.prepareForSniffer()
     UIViewController.prepareForSniffer()
