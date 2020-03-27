@@ -9,7 +9,7 @@ import UIKit
 
 open class JYLagMonitor {
   
-  static let shared = JYLagMonitor()
+  static open let shared = JYLagMonitor()
   
   var runLoopObserver: CFRunLoopObserver?
   var dispatchSemaphore: DispatchSemaphore?
@@ -17,7 +17,7 @@ open class JYLagMonitor {
   var timeoutCount = 0
   var isMoniting = false
   
-  func start() {
+  open func start() {
     self.isMoniting = true
     if runLoopObserver != nil {
       return
@@ -64,7 +64,7 @@ open class JYLagMonitor {
     }
   }
   
-  func end() {
+  open func end() {
     self.isMoniting = false
     guard runLoopObserver != nil else {
       return
